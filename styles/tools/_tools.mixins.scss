@@ -1,0 +1,51 @@
+
+@mixin full-width($value: block) {
+  display: $value;
+  width: 100%;
+}
+
+@mixin full-wh($value: block) {
+  @include full-width($value);
+
+  height: 100%;
+}
+
+@mixin position-absolute() {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+@mixin font($fontSize, $lineHeight, $color, $fontFamily) {
+  font: {
+    family: $fontFamily, sans-serif;
+    size: $fontSize;
+  }
+
+  line-height: $lineHeight;
+  color: $color;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin number-of-lines($value) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: $value;
+  -webkit-box-orient: vertical;
+}
+
+@mixin flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin square($size: 24px) {
+  width: $size;
+  height: $size;
+}

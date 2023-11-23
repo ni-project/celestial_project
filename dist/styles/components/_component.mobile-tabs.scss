@@ -1,0 +1,74 @@
+
+.mobile-tabs {
+  @include full-width(none);
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 120;
+
+  nav {
+    @include full-width(flex);
+
+    justify-content: center;
+    column-gap: 32px;
+    height: $sizeMobileMenuTabs;
+    background: $white;
+    border-top: 1px solid $gray36;
+  }
+
+  &_item {
+    $this: &;
+    @include full-width(flex);
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 6px;
+    max-width: 75px;
+    height: 100%;
+    text-decoration: none;
+
+    &.active {
+      svg path {
+        stroke: $blue1;
+      }
+
+      #{$this}-caption {
+        color: $blue1;
+      }
+    }
+
+    &-icon {
+      @include flex-centered;
+
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    &-caption {
+      @include full-width(block);
+      @include font(12px, 14px, $grayLabel, Golos-Text-Medium);
+      @include text-ellipsis;
+
+      padding: 0 4px;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .mobile-tabs {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .mobile-tabs {
+    nav {
+      justify-content: space-evenly;
+      column-gap: 0;
+    }
+  }
+}

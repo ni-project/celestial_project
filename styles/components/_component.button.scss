@@ -1,0 +1,204 @@
+
+.button {
+  &-primary {
+    $this: &;
+    @include full-width(flex);
+
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    height: 48px;
+    padding: 0 14px;
+    background: $blue1;
+    text-decoration: none;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: $blue2;
+    }
+
+    &.active {
+      #{$this}_icon {
+        &:before {
+          transform: scale(0);
+        }
+
+        &:after {
+          transform: scale(1);
+        }
+      }
+    }
+
+    &_icon {
+      @include flex-centered;
+      @include square();
+
+      position: relative;
+
+      &:before {
+        @include square();
+        @include position-absolute;
+
+        content: '';
+        display: block;
+        background: {
+          image: url('/images/icons/catalog.svg');
+          size: contain;
+          position: 50% 50%;
+          repeat: no-repeat;
+        };
+        transform: scale(1);
+        transition: 0.2s;
+      }
+
+      &:after {
+        @include square();
+        @include position-absolute;
+
+        content: '';
+        display: block;
+        background: {
+          image: url('/images/icons/close-white.svg');
+          size: contain;
+          position: 50% 50%;
+          repeat: no-repeat;
+        };
+        transform: scale(0);
+        transition: 0.2s;
+      }
+    }
+
+    &_caption {
+      @include font(16px, 24px, $white, Golos-Text-Medium);
+    }
+  }
+
+  &-secondary {
+    $this: &;
+    @include full-width(flex);
+
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    height: 48px;
+    padding: 0 24px;
+    background: $bgLightBlue;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.2s;
+
+    &:hover {
+      background: $blueLight;
+
+      #{$this}_caption {
+        color: $blue2
+      }
+    }
+
+    &_caption {
+      @include font(14px, 20px, $primary, Golos-Text-Medium);
+
+      transition: 0.2s;
+    }
+  }
+
+  &-glass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4px;
+    text-decoration: none;
+
+    &:hover {
+      span {
+        color: $blue1;
+      }
+    }
+
+    &_icon {
+      position: relative;
+    }
+
+    span {
+      @include font(14px, 20px, $primary, Golos-Text-Medium);
+      @include text-ellipsis;
+
+      display: block;
+      max-width: 80px;
+      transition: 0.2s;
+    }
+  }
+
+  &-lonely {
+    @include flex-centered;
+    @include square(44px);
+
+    background: $bgLightBlue;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.2s;
+
+    &.active {
+      background: $blue1;
+    }
+  }
+
+  &-mobile {
+    $this: &;
+
+    &.active {
+      #{$this}_hamburger {
+        &:before {
+          transform: scale(0);
+        }
+
+        &:after {
+          transform: scale(1);
+        }
+      }
+    }
+
+    &_hamburger {
+      @include square();
+
+      display: block;
+      position: relative;
+
+      &:before {
+        @include square();
+        @include position-absolute;
+
+        content: '';
+        display: block;
+        background: {
+          image: url('/images/icons/hamburger.svg');
+          size: contain;
+          position: 50% 50%;
+          repeat: no-repeat;
+        };
+        transform: scale(1);
+        transition: 0.2s;
+      }
+
+      &:after {
+        @include square();
+        @include position-absolute;
+
+        content: '';
+        display: block;
+        background: {
+          image: url('/images/icons/close-white.svg');
+          size: contain;
+          position: 50% 50%;
+          repeat: no-repeat;
+        };
+        transform: scale(0);
+        transition: 0.2s;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,74 @@
+
+.form-select {
+  $this: &;
+  $formInputIconContainer: $formInputIconWidth + $formInputIconPadding;
+
+  @include full-width(block);
+
+  position: relative;
+
+  label {
+    @include full-width(flex);
+
+    align-items: flex-end;
+    height: 60px;
+    padding: 8px $formInputPadding;
+    background: transparent;
+    border: 1px solid $gray;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+    z-index: 2;
+
+    #{$this}_caption {
+      @include full-width(block);
+      @include font(16px, 24px, $primary, Golos-Text-Regular);
+      @include text-ellipsis;
+
+      height: 24px;
+      padding: 0;
+      background: transparent;
+      border: 0;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &_placeholder {
+    @include full-width(block);
+    @include font(16px, 24px, $grayLabel, Golos-Text-Regular);
+
+    padding: 0 $formInputPadding;
+    user-select: none;
+    transition: 0.2s;
+    position: absolute;
+    left: 0;
+    top: 18px;
+    z-index: 2;
+
+    &.active {
+      font-size: 14px;
+      line-height: 20px;
+      top: 8px;
+    }
+  }
+
+  &_icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: $formInputIconContainer;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+    & ~ label {
+      #{$this}_caption {
+        padding-right: $formInputIconContainer;
+      }
+    }
+  }
+}

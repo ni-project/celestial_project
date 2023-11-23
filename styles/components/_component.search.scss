@@ -1,0 +1,35 @@
+
+.search {
+  @include full-width(block);
+
+  label {
+    @include full-width(block);
+
+    position: relative;
+  }
+
+  &_icon {
+    @include flex-centered;
+
+    width: 24px;
+    height: 100%;
+    position: absolute;
+    left: 14px;
+    top: 0;
+    z-index: 1;
+  }
+
+  &_control {
+    @include full-width(block);
+    @include font(16px, 24px, $secondary, Golos-Text-Regular);
+
+    height: 48px;
+    padding: 0 12px 0 46px;
+    background: transparent;
+    border: 2px solid $blue1;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+}

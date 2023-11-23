@@ -1,0 +1,36 @@
+
+.form {
+  &_container {
+    @include full-width(flex);
+
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &_controls {
+    @include full-width(flex);
+
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+}
+
+@media screen and (max-width: 520px) {
+  .form {
+    &_container {
+      row-gap: 24px;
+    }
+
+    &_controls {
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 24px;
+
+      .form-button {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+
+.root {
+  @include full-wh(table);
+
+  table-layout: fixed;
+
+  main {
+    .container {
+      padding-top: $mainMarginDesktop;
+    }
+  }
+}
+
+.middle-wrap {
+  @include full-width(block);
+
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0;
+  transition: 0.3s;
+}
+
+.section-margin {
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 1500px) {
+  .middle-wrap {
+    max-width: 100%;
+    padding: 0 32px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .root {
+    padding-bottom: $sizeMobileMenuTabs;
+
+    main {
+      .container {
+        padding-top: $mainMarginTabletLandscape;
+      }
+    }
+  }
+
+  .section-margin {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .root {
+    main {
+      .container {
+        padding-top: $mainMarginTabletPortrait;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .root {
+    main {
+      .container {
+        padding-top: $mainMarginMobile;
+      }
+    }
+  }
+
+  .middle-wrap {
+    padding: 0 16px;
+  }
+}

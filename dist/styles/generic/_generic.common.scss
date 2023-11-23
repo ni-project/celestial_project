@@ -1,0 +1,25 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.text {
+  &-primary {
+    @include font(14px, 20px, $primary, Golos-Text-Medium);
+
+    display: inline;
+  }
+
+  &-secondary {
+    @include font(14px, 20px, $grayLabel, Golos-Text-Medium);
+
+    display: inline;
+  }
+}
+
+::-ms-reveal,
+::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}

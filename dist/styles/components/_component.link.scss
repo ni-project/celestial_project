@@ -1,0 +1,12 @@
+
+.link {
+  @include font(14px, 20px, $blue1, Golos-Text-Medium);
+
+  display: inline;
+  text-decoration: none;
+  transition: 0.2s;
+
+  &:hover {
+    color: $primary;
+  }
+}

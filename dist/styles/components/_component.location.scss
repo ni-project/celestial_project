@@ -1,0 +1,11 @@
+
+.location {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 4px;
+  text-decoration: none;
+
+  &_name {
+    @include font(14px, 20px, $primary, Golos-Text-Medium);
+  }
+}

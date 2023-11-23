@@ -1,0 +1,7 @@
+
+.form-group {
+  @include full-width(flex);
+
+  flex-direction: column;
+  row-gap: 16px;
+}

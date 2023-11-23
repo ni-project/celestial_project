@@ -1,0 +1,13 @@
+
+.banner {
+  @include full-width(block);
+
+  picture, img {
+    width: 100%;
+    border-radius: 16px;
+  }
+
+  &_container {
+    @include full-width(block);
+  }
+}

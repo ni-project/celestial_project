@@ -1,0 +1,218 @@
+
+.mobile-menu {
+  $this: &;
+  @include full-wh(block);
+
+  background: $black65;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 90;
+  transition: 0.5s;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+
+    #{$this} {
+      &_container {
+        right: 0;
+      }
+    }
+  }
+
+  &_close {
+    @include full-wh(block);
+    @include position-absolute;
+
+    z-index: 1;
+  }
+
+  &_container {
+    @include full-wh(block);
+
+    max-width: 380px;
+    padding: 111px 16px 90px 16px;
+    background: $bgLightBlue;
+    overflow-y: auto;
+    transition: 0.3s;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    z-index: 2;
+  }
+
+  &_button {
+    &-location {
+      @include full-width(flex);
+
+      align-items: center;
+      padding: 18px 40px 18px 10px;
+      background: $white;
+      text-decoration: none;
+      border-radius: 10px;
+      position: relative;
+
+      &:after {
+        @include flex-centered;
+
+        content: '';
+        width: 24px;
+        height: 100%;
+        background: {
+          image: url('/images/icons/arrow-right.svg');
+          size: contain;
+          position: 50% 50%;
+          repeat: no-repeat;
+        };
+        position: absolute;
+        top: 0;
+        right: 10px;
+      }
+
+      .location {
+        &_name {
+          line-height: 24px;
+        }
+      }
+    }
+
+    &-catalog {
+      @include full-width(flex);
+
+      align-items: center;
+      height: 60px;
+      margin-top: 32px;
+      padding: 0 10px;
+      background: $blue1;
+      text-decoration: none;
+      border-radius: 10px;
+      position: relative;
+
+      &_caption {
+        @include font(16px, 24px, $white, Golos-Text-Medium)
+      }
+
+      img {
+        width: 132px;
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+      }
+    }
+  }
+
+  &_navigation {
+    @include full-width(flex);
+
+    flex-direction: column;
+    row-gap: 8px;
+    margin-top: 16px;
+
+    nav {
+      @include full-width(block);
+
+      padding: 16px 10px 0 10px;
+      background: $white;
+      border-radius: 10px;
+
+      ul {
+        @include full-width(block);
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          @include full-width(block);
+
+          border-bottom: 1px solid $gray;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          a {
+            @include full-width(block);
+            @include font(16px, 24px, $primary, Golos-Text-Demibold);
+
+            padding: 16px 0;
+            text-decoration: none;
+
+            &:active {
+              color: $blue1;
+            }
+          }
+        }
+      }
+    }
+
+    &-title {
+      @include font(14px, 20px, $grayLabel, Golos-Text-Medium);
+    }
+  }
+
+  &_phones {
+    @include full-width(flex);
+
+    justify-content: space-around;
+    max-width: 340px;
+    margin: 24px auto 0 auto;
+
+    a {
+      @include font(16px, 24px, $primary, Golos-Text-Demibold);
+
+      display: block;
+      text-decoration: none;
+
+      &:active {
+        color: $blue1;
+      }
+    }
+  }
+
+  &_address {
+    @include full-width(block);
+    @include font(14px, 20px, $grayLabel, Golos-Text-Regular);
+
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  &_social {
+    @include full-width(flex);
+
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    a {
+      @include flex-centered;
+
+      width: 48px;
+      height: 48px;
+      margin: 0 3px;
+      background: $white;
+      text-decoration: none;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .mobile-menu {
+    &_container {
+      padding: 92px 16px 90px 16px;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .mobile-menu {
+    &_container {
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+
+.modal {
+  $this: &;
+  @include full-wh(block);
+
+  background: rgba(27, 34, 92, 0.65);
+  overflow-y: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+
+    #{$this} {
+      &_wrapper {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &_window {
+    @include full-width(flex);
+
+    align-items: center;
+    min-height: calc(100% - #{$modalWindowMargin * 2});
+    margin: $modalWindowMargin 0;
+    padding: 0 24px;
+  }
+
+  &_wrapper {
+    @include full-width(block);
+
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 40px;
+    background: $white;
+    border-radius: 16px;
+    transform: scale(0.9);
+    transition: 0.2s;
+  }
+
+  &_head {
+    @include full-width(flex);
+
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &_caption {
+    @include font(22px, 26px, $primary, Golos-Text-Demibold);
+  }
+
+  &_close {
+    @include flex-centered;
+    @include square(40px);
+
+    background: $bgLightBlue;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+
+    svg {
+      transform: rotate(0deg);
+      transition: 0.2s;
+
+      path {
+        stroke: $blue1;
+        transition: 0.2s;
+      }
+    }
+
+    &:hover {
+      background: $blue2;
+
+      svg {
+        transform: rotate(180deg);
+
+        path {
+          stroke: $white;
+        }
+      }
+    }
+  }
+
+  &_body {
+    @include full-width(block);
+
+    margin-top: 20px;
+
+    &-caption {
+      @include font(16px, 24px, $primary, Golos-Text-Regular);
+    }
+  }
+
+  &_footer {
+    @include full-width(block);
+
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid $gray;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .modal {
+    &_wrapper {
+      padding: 20px 16px 24px 16px;
+    }
+
+    &_close {
+      @include square(34px);
+    }
+
+    &_body {
+      row-gap: 24px;
+      margin-top: 24px;
+    }
+
+    &_caption {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &_footer {
+      margin-top: 24px;
+      padding-top: 24px;
+    }
+  }
+}

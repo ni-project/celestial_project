@@ -1,0 +1,54 @@
+
+.swiper {
+  &-slide {
+    picture, img {
+      width: 100%;
+      border-radius: 16px;
+    }
+  }
+
+  &-button {
+    &-prev, &-next {
+      @include square(48px);
+
+      background-color: $white;
+      border-radius: 100%;
+      user-select: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+      &:after {
+        @include square(24px);
+
+        display: block;
+        font-size: 0;
+      }
+    }
+
+    &-prev {
+      &:after {
+        background-image: url('../images/icons/arrow-left-blue.svg');
+      }
+    }
+
+    &-next {
+      &:after {
+        background-image: url('../images/icons/arrow-right-blue.svg');
+      }
+    }
+  }
+
+  &-pagination {
+    line-height: 0;
+
+    &-bullet {
+      @include square(8px);
+
+      background: rgba(255, 255, 255, 0.5);
+      transition: 0.3s;
+
+      &-active {
+        background: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+}

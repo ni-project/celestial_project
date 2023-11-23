@@ -1,0 +1,52 @@
+
+@font-face {
+  font-family: 'Golos-Text-Regular';
+  src:
+          url('../fonts/golos-text_regular.woff2') format('woff2'),
+          url('../fonts/golos-text_regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Golos-Text-Medium';
+  src:
+          url('../fonts/golos-text_medium.woff2') format('woff2'),
+          url('../fonts/golos-text_medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Golos-Text-Demibold';
+  src:
+          url('../fonts/golos-text_demibold.woff2') format('woff2'),
+          url('../fonts/golos-text_demibold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Golos-Text-Bold';
+  src:
+          url('../fonts/golos-text_bold.woff2') format('woff2'),
+          url('../fonts/golos-text_bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$fontGlobal: 'Golos-Text-Regular', sans-serif;
+
+$H_color: $primary;
+
+$H1_fontSize:          44px;
+$H1_lineHeight:        44px;
+
+$H1_fontSize_mobile:   28px;
+$H1_lineHeight_mobile: 32px;
+
+$H2_fontSize:          35px;
+$H2_lineHeight:        40px;
+
+$H2_fontSize_mobile:   28px;
+$H2_lineHeight_mobile: 32px;

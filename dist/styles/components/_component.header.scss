@@ -1,0 +1,235 @@
+
+.header {
+  @include full-width(block);
+
+  padding: 10px 0;
+  background: $white;
+  border-bottom: 1px solid $white;
+  transition: 0.2s border-bottom-color;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+
+  &.has-border {
+    border-bottom: 1px solid $gray;
+  }
+
+  &_wrapper {
+    @include full-width(grid);
+
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+  }
+
+  &_logo {
+    @include full-width(block);
+
+    text-decoration: none;
+
+    img {
+      @include full-width(block);
+    }
+  }
+
+  &_content {
+    padding-left: 42px;
+
+    &-top {
+      @include full-width(flex);
+
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid $gray;
+    }
+
+    &-bottom {
+      @include full-width(grid);
+
+      grid-template-columns: auto 1fr auto;
+    }
+
+    &-desktop {
+      display: block;
+    }
+
+    &-mobile {
+      display: none;
+    }
+  }
+
+  &_nav {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    &-item {
+      $this: &;
+
+      position: relative;
+      cursor: pointer;
+
+      &.active {
+        #{$this}_link {
+          color: $blue1;
+
+          &-arrow {
+            transform: rotateX(180deg) translateY(-1px);
+
+            path {
+              stroke: $blue1;
+            }
+          }
+        }
+
+        #{$this}_dropdown {
+          margin-top: 5px;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        #{$this}_substrate {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      &_link {
+        $this: &;
+        @include font(14px, 25px, $secondary, Golos-Text-Medium);
+
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        position: relative;
+        z-index: 10;
+
+        &-arrow {
+          display: block;
+          width: 16px;
+          height: 16px;
+          position: relative;
+          top: 0;
+          transform: rotateX(0deg) translateY(0);
+          transition: 0.2s;
+
+          path {
+            stroke: $secondary;
+          }
+        }
+
+        &:hover {
+          color: $blue1;
+
+          #{$this}-arrow {
+            path {
+              stroke: $blue1;
+            }
+          }
+        }
+      }
+
+      &_dropdown {
+        $asidePadding: 16px;
+
+        display: block;
+        min-width: 130px;
+        margin-top: 10px;
+        padding: 14px $asidePadding;
+        background: $white;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.2s;
+        position: absolute;
+        top: 100%;
+        left: -$asidePadding;
+        z-index: 10;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          row-gap: 5px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            a {
+              @include full-width(block);
+              @include font(14px, 20px, $primary, Golos-Text-Medium);
+
+              white-space: nowrap;
+              text-decoration: none;
+              transition: 0.2s;
+
+              &:hover {
+                color: $blue1;
+              }
+            }
+          }
+        }
+      }
+
+      &_substrate {
+        @include full-wh(block);
+
+        background: transparent;
+        opacity: 0;
+        visibility: hidden;
+        cursor: default;
+        transition: 0.2s;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 9;
+      }
+    }
+  }
+
+  &_search {
+    padding: 0 40px 0 20px;
+  }
+
+  &_controls {
+    display: flex;
+    column-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .header {
+    border-bottom: 1px solid $gray;
+
+    .middle-wrap {
+      padding: 0 20px;
+    }
+
+    &_content {
+      &-desktop {
+        display: none;
+      }
+
+      &-mobile {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 6px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header {
+    &_wrapper {
+      grid-template-columns: 112px 1fr;
+    }
+
+    .middle-wrap {
+      padding: 0 16px;
+    }
+  }
+}

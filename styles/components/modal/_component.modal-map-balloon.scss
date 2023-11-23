@@ -1,0 +1,62 @@
+
+.modal {
+  $this: &;
+
+  &_map-balloon {
+    &.active {
+      display: none;
+    }
+
+    #{$this} {
+      &_wrapper {
+        max-width: 423px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .modal {
+    &_map-balloon {
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal {
+    $this: &;
+
+    &_map-balloon {
+      transition: 0.4s;
+
+      &.active {
+        #{$this} {
+          &_wrapper {
+            transform: scale(1) translateY(0);
+          }
+        }
+      }
+
+      #{$this} {
+        &_wrapper {
+          max-width: 100%;
+          padding: 64px 16px 32px 16px;
+          border-radius: 16px 16px 0 0;
+          transform: scale(1) translateY(100%);
+          transition: 0.4s;
+        }
+
+        &_window {
+          min-height: 100%;
+          align-items: flex-end;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
