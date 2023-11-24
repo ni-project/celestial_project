@@ -57,8 +57,7 @@ export default class AppContacts {
             mobileModalBalloonContent.innerHTML = this.getBalloonBody(description);
         };
         const movingMapToAddress = (mapPlacemark, address) => {
-            // PS: Если увеличивать/приближать масштаб карты, то карта анимируется некрасиво, проблема яндекса, оставляю масштаб без изменения - "11"
-            //map.setZoom(11);
+            map.setZoom(11);
             map.panTo(address.position, {
                 duration: 800
             }).then(() => {
