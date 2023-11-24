@@ -11,11 +11,11 @@
     <meta name="keywords" itemprop="keywords" content="" />
     <meta name="description" itemprop="description" content="" />
 
-    <script src="scripts/vendors/swiper-bundle.min.js"></script>
-    <script src="scripts/vendors/optiscroll.js"></script>
+    <script src="/scripts/vendors/swiper-bundle.min.js"></script>
+    <script src="/scripts/vendors/optiscroll.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=321b8b63-b0bd-4c32-a772-4c15281538ff&lang=ru_RU" type="text/javascript"></script>
 
-    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="/styles/app.css">
 </head>
 
 <body>
@@ -60,6 +60,6 @@
 
 <?php include "components/Modal/MapBalloon.php"; ?>
 
-<script src="scripts/app.js" type="module"></script>
+<script src="/scripts/app.js" type="module"></script>
 </body>
 </html>
